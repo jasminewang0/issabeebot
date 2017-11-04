@@ -20,12 +20,15 @@ t = ['love bees']
 count = 0
 
 for s in twt:
+    count = count + 1
+    print count
     for i in t:
         if i in s.text:
+            print s.text
             sn = s.user.screen_name
             m = "@%s YA LIKE JAZZ?" % (sn)
             try:
                 s = api.update_status(m, s.id)
-                time.sleep(600) #wait 10 mins
+                time.sleep(120) #wait 2 mins
             except TweepError:
                 print("Already been tweeted, skip this!")
